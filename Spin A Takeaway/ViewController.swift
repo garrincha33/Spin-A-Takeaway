@@ -26,11 +26,31 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let logoImageView = UIImageView(image: UIImage(named: "bg2"))
         logoImageView.frame = CGRect(x: view.frame.maxX / 7, y: 25, width: 300, height: 250)
         view.addSubview(logoImageView)
-
         
+        // Add spinning wheel image view with flashing animation
+        let spinWheelImageView = UIImageView(image: UIImage(named: "spinwheel"))
+        spinWheelImageView.frame = CGRect(x: logoImageView.frame.midX - 80, y: logoImageView.frame.maxY + 120, width: 150, height: 50)
+        spinWheelImageView.alpha = 0.0
+
+        view.addSubview(spinWheelImageView)
+
+        let flashAnimation = CABasicAnimation(keyPath: "opacity")
+        flashAnimation.fromValue = 0.0
+        flashAnimation.toValue = 1.0
+        flashAnimation.duration = 0.5
+        flashAnimation.autoreverses = true
+        flashAnimation.repeatCount = .infinity
+        spinWheelImageView.layer.add(flashAnimation, forKey: "flash")
+
+        UIView.animate(withDuration: 0.5, delay: 2.0, options: [], animations: {
+            spinWheelImageView.alpha = 1.0
+        }, completion: nil)
+
+
         // Configure the circle view
         circleView.backgroundColor = UIColor.clear
         circleView.layer.cornerRadius = circleView.bounds.width / 2
@@ -42,12 +62,6 @@ class ViewController: UIViewController {
         circleView.layer.shadowRadius = 2
         circleView.center = view.center
         view.addSubview(circleView)
-        
-        // Add a gradient background to the circle view
-//        let gradientLayer = CAGradientLayer()
-//        gradientLayer.frame = circleView.bounds
-//        gradientLayer.colors = [UIColor.blue.cgColor, UIColor.purple.cgColor]
-//        circleView.layer.insertSublayer(gradientLayer, at: 0)
         
         // Add separator lines to the circle
         let separatorLayer = CAShapeLayer()
@@ -68,9 +82,12 @@ class ViewController: UIViewController {
         // Add the word labels to the circle
         for i in 0..<options.count {
             let radius: CGFloat = 105
+            let angle = CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count))
+            let x = circleView.bounds.midX + radius * cos(angle)
+            let y = circleView.bounds.midY + radius * sin(angle)
             let wordLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 120, height: 30))
-            wordLabel.center = CGPoint(x: circleView.bounds.midX + radius * cos(CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count))), y: circleView.bounds.midY + radius * sin(CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count))))
-            wordLabel.transform = CGAffineTransform(rotationAngle: CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count)))
+            wordLabel.center = CGPoint(x: x, y: y)
+            wordLabel.transform = CGAffineTransform(rotationAngle: angle)
             wordLabel.textAlignment = .center
             wordLabel.textColor = UIColor.init(white: 4, alpha: 0.5)
             wordLabel.font = UIFont.systemFont(ofSize: wordLabelFontSize, weight: .bold)
@@ -79,6 +96,7 @@ class ViewController: UIViewController {
             wordLabel.text = options[i]
             circleView.addSubview(wordLabel)
         }
+
         
         // Add a tap gesture recognizer to the circle view
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
@@ -152,6 +170,9 @@ class ViewController: UIViewController {
         }
     }
 }
+
+
+
 
 
     
