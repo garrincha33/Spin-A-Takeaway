@@ -38,9 +38,10 @@ class ViewController: UIViewController, UITableViewDelegate {
         view.addSubview(logoImageView)
         
         let spinWheelImageView = UIImageView(image: UIImage(named: "spinwheel"))
-        spinWheelImageView.frame = CGRect(x: logoImageView.frame.midX - 80, y: logoImageView.frame.maxY + 120, width: 150, height: 50)
+        spinWheelImageView.frame = CGRect(x: logoImageView.frame.midX - 123, y: logoImageView.frame.maxY - 15, width: 250, height: 50)
         spinWheelImageView.alpha = 0.0
         view.addSubview(spinWheelImageView)
+        
         
         let flashAnimation = CABasicAnimation(keyPath: "opacity")
         flashAnimation.fromValue = 0.0
@@ -65,25 +66,26 @@ class ViewController: UIViewController, UITableViewDelegate {
         circleView.center = view.center
         view.addSubview(circleView)
         
-        let separatorLayer = CAShapeLayer()
-        separatorLayer.strokeColor = UIColor.white.cgColor
-        separatorLayer.lineWidth = 0.5
-        let path = UIBezierPath()
-        for i in 0..<options.count {
-            let radius: CGFloat = 125
-            let lineLength: CGFloat = 0.1
-            let angle = CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count))
-            let x = circleView.bounds.midX + (radius - lineLength) * cos(angle)
-            let y = circleView.bounds.midY + (radius - lineLength) * sin(angle)
-            let startPoint = CGPoint(x: circleView.bounds.midX, y: circleView.bounds.midY)
-            let endPoint = CGPoint(x: x, y: y)
-            let path = UIBezierPath()
-            path.move(to: startPoint)
-            path.addLine(to: endPoint)
-            separatorLayer.path = path.cgPath
-        }
-        separatorLayer.path = path.cgPath
-        circleView.layer.addSublayer(separatorLayer)
+//        let separatorLayer = CAShapeLayer()
+//        separatorLayer.strokeColor = UIColor.white.cgColor
+//        separatorLayer.lineWidth = 0.5
+//        separatorLayer.zPosition = 1
+//        let path = UIBezierPath()
+//        for i in 0..<options.count {
+//            let radius: CGFloat = 125
+//            let lineLength: CGFloat = 0.1
+//            let angle = CGFloat(i) * (2 * CGFloat.pi / CGFloat(options.count))
+//            let x = circleView.bounds.midX + (radius - lineLength) * cos(angle)
+//            let y = circleView.bounds.midY + (radius - lineLength) * sin(angle)
+//            let startPoint = CGPoint(x: circleView.bounds.midX, y: circleView.bounds.midY)
+//            let endPoint = CGPoint(x: x, y: y)
+//            let path = UIBezierPath()
+//            path.move(to: startPoint)
+//            path.addLine(to: endPoint)
+//            separatorLayer.path = path.cgPath
+//        }
+//        separatorLayer.path = path.cgPath
+//        circleView.layer.addSublayer(separatorLayer)
         
         for i in 0..<options.count {
             let radius: CGFloat = 105
@@ -109,7 +111,7 @@ class ViewController: UIViewController, UITableViewDelegate {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(red: 0.38, green: 0.71, blue: 0.80, alpha: 1.0).cgColor, UIColor(red: 0.91, green: 0.47, blue: 0.67, alpha: 1.0).cgColor]
         view.layer.insertSublayer(gradientLayer, at: 0)
-        
+
         let gradientLayerInside = CAGradientLayer()
         gradientLayerInside.frame = circleView.bounds
         gradientLayerInside.cornerRadius = gradientLayerInside.bounds.width / 2
@@ -182,8 +184,6 @@ class ViewController: UIViewController, UITableViewDelegate {
     }
 
 }
-
-
 
 class SettingsViewController: UITableViewController {
 
@@ -266,14 +266,6 @@ class SettingsViewController: UITableViewController {
 
         return cell
     }
-
-
-
-
-
-
-
-
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         return nil
