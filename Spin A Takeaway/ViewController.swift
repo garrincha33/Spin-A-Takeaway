@@ -18,13 +18,13 @@ class ViewController: UIViewController {
     
     let options = ["Italian", "Chinese", "Indian", "Thai", "Mexican", "Pizza", "Burger", "Sushi"]
     
-    let sayings = ["Mmm...I wonder what you're having tonight.", "The suspense is hard to take.", "Feeling lucky?", "I'm excited to see what you get!", "Bon appetit!"]
+    let sayings = ["Mmm...I wonder what you're having tonight.", "The suspense is hard to take.", "Feeling lucky?", "I'm excited to see what you get!", "Bon appetit!", "Personally, I love mexican"]
 
     let circleView = UIView(frame: CGRect(x: 0, y: 0, width: 300, height: 300))
     let wordLabelFontSize: CGFloat = 20
     var selectedOption: String?
     
-    let customFont = UIFont(name: "HuskyGiggleDEMO-Regular", size: 40)
+    let customFont = UIFont(name: "HuskyGiggleDEMO-Regular", size: 50)
 
     
     override func viewDidLoad() {
@@ -134,8 +134,8 @@ class ViewController: UIViewController {
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         // Display a random saying while the wheel is spinning
-        let sayingLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 30))
-        sayingLabel.center.y = circleView.center.y + 250
+        let sayingLabel = UILabel(frame: CGRect(x: 25, y: 50, width: 350, height: 250))
+        sayingLabel.center.y = circleView.center.y + 200
         sayingLabel.font = customFont
         sayingLabel.textColor = UIColor.white
         sayingLabel.textAlignment = .center
