@@ -107,17 +107,26 @@ class ViewController: UIViewController {
         gradientLayer.frame = view.bounds
         gradientLayer.colors = [UIColor(red: 0.38, green: 0.71, blue: 0.80, alpha: 1.0).cgColor, UIColor(red: 0.91, green: 0.47, blue: 0.67, alpha: 1.0).cgColor]
         view.layer.insertSublayer(gradientLayer, at: 0)
+        
+        let gradientLayerInside = CAGradientLayer()
+        gradientLayerInside.frame = circleView.bounds
+        gradientLayerInside.cornerRadius = gradientLayerInside.bounds.width / 2
+        gradientLayerInside.colors = [UIColor(red: 0.38, green: 0.71, blue: 0.80, alpha: 1.0).cgColor, UIColor(red: 0.91, green: 0.47, blue: 0.67, alpha: 1.0).cgColor]
+        circleView.layer.insertSublayer(gradientLayerInside, at: 0)
     }
     
     @objc func handleTap(_ sender: UITapGestureRecognizer) {
         // Display a random saying while the wheel is spinning
-        let sayingLabel = UILabel(frame: CGRect(x: 0, y: 0, width: 300, height: 30))
-        sayingLabel.center.y = circleView.center.y + 200
+        let sayingLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 30))
+        sayingLabel.center.y = circleView.center.y + 250
         sayingLabel.font = UIFont.systemFont(ofSize: 20)
         sayingLabel.textColor = UIColor.white
         sayingLabel.textAlignment = .center
+        sayingLabel.numberOfLines = 0
+        sayingLabel.lineBreakMode = .byWordWrapping
         sayingLabel.text = sayings.randomElement()
         view.addSubview(sayingLabel)
+
 
         UIView.animate(withDuration: 5.0, delay: 0, options: .curveEaseInOut, animations: {
             sayingLabel.alpha = 0
