@@ -24,9 +24,18 @@ class ViewController: UIViewController {
     let wordLabelFontSize: CGFloat = 20
     var selectedOption: String?
     
+    let customFont = UIFont(name: "HuskyGiggleDEMO-Regular", size: 40)
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        for family in UIFont.familyNames {
+//            print("Font family name: \(family)")
+//            for name in UIFont.fontNames(forFamilyName: family) {
+//                print("Font name: \(name)")
+//            }
+//        }
         let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium)
         let cogImage = UIImage(systemName: "gearshape.fill", withConfiguration: config)?.withTintColor(.white, renderingMode: .alwaysOriginal)
         let cogButton = UIButton(type: .system)
@@ -127,12 +136,12 @@ class ViewController: UIViewController {
         // Display a random saying while the wheel is spinning
         let sayingLabel = UILabel(frame: CGRect(x: 50, y: 50, width: 300, height: 30))
         sayingLabel.center.y = circleView.center.y + 250
-        sayingLabel.font = UIFont.systemFont(ofSize: 20)
+        sayingLabel.font = customFont
         sayingLabel.textColor = UIColor.white
         sayingLabel.textAlignment = .center
+        sayingLabel.text = sayings.randomElement()
         sayingLabel.numberOfLines = 0
         sayingLabel.lineBreakMode = .byWordWrapping
-        sayingLabel.text = sayings.randomElement()
         view.addSubview(sayingLabel)
 
 
