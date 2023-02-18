@@ -54,9 +54,6 @@
 		821BBDC429A0A5B70092C39F /* Spin A Takeaway */ = {
 			isa = PBXGroup;
 			children = (
-				821BBDDB29A0A6290092C39F /* Wheel */,
-				821BBDDA29A0A61B0092C39F /* ViewModel */,
-				821BBDD929A0A6140092C39F /* Model */,
 				821BBDC529A0A5B70092C39F /* AppDelegate.swift */,
 				821BBDC729A0A5B70092C39F /* SceneDelegate.swift */,
 				821BBDC929A0A5B70092C39F /* ViewController.swift */,
@@ -65,27 +62,6 @@
 				821BBDD329A0A5B90092C39F /* Info.plist */,
 			);
 			path = "Spin A Takeaway";
-			sourceTree = "<group>";
-		};
-		821BBDD929A0A6140092C39F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
-		821BBDDA29A0A61B0092C39F /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		821BBDDB29A0A6290092C39F /* Wheel */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Wheel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
