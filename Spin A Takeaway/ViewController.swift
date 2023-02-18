@@ -27,6 +27,14 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let config = UIImage.SymbolConfiguration(pointSize: 30, weight: .medium)
+        let cogImage = UIImage(systemName: "gearshape.fill", withConfiguration: config)?.withTintColor(.white, renderingMode: .alwaysOriginal)
+        let cogButton = UIButton(type: .system)
+        cogButton.frame = CGRect(x: view.frame.maxX - 60, y: 60, width: 30, height: 30)
+        cogButton.setImage(cogImage, for: .normal)
+        view.addSubview(cogButton)
+
+        
         let logoImageView = UIImageView(image: UIImage(named: "bg2"))
         logoImageView.frame = CGRect(x: view.frame.maxX / 7, y: 25, width: 300, height: 250)
         view.addSubview(logoImageView)
