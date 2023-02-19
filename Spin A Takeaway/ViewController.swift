@@ -166,15 +166,20 @@ class ViewController: UIViewController, UITableViewDelegate {
             let selectedOptionIndex = Int(finalAngle / (2 * CGFloat.pi / CGFloat(self.options.count))) % self.options.count
             self.selectedOption = self.options[selectedOptionIndex]
             print("Selected option: \(self.selectedOption ?? "none")")
-            let alert = UIAlertController(title: "Spin A Takeaway", message: "You should try \(self.selectedOption ?? "something else")!", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-            self.present(alert, animated: true, completion: nil)
             
+            let alert = CustomAlertViewController()
+            alert.titleText = "Spin A Takeaway"
+            alert.messageText = "You should try \(self.selectedOption ?? "something else")!"
+            alert.actionText = "OK"
+            
+            self.present(alert, animated: true, completion: nil)
+                    
             self.circleView.layer.removeAllAnimations()
             for subview in self.circleView.subviews {
                 subview.layer.removeAllAnimations()
             }
         }
+
     }
     
     @objc func showSettings() {
