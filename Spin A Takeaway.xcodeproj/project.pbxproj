@@ -14,6 +14,7 @@
 		821BBDD229A0A5B90092C39F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 821BBDD029A0A5B90092C39F /* LaunchScreen.storyboard */; };
 		821BBDEE29A11CEA0092C39F /* HuskyGiggleDemoRegular-dPXl.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 821BBDED29A11CEA0092C39F /* HuskyGiggleDemoRegular-dPXl.ttf */; };
 		821BBDF029A120F20092C39F /* Bock-LjjG.otf in Resources */ = {isa = PBXBuildFile; fileRef = 821BBDEF29A120F20092C39F /* Bock-LjjG.otf */; };
+		821BBDF229A1EE8D0092C39F /* CustomAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 821BBDF129A1EE8D0092C39F /* CustomAlertViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		821BBDD329A0A5B90092C39F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		821BBDED29A11CEA0092C39F /* HuskyGiggleDemoRegular-dPXl.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "HuskyGiggleDemoRegular-dPXl.ttf"; sourceTree = "<group>"; };
 		821BBDEF29A120F20092C39F /* Bock-LjjG.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Bock-LjjG.otf"; sourceTree = "<group>"; };
+		821BBDF129A1EE8D0092C39F /* CustomAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomAlertViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +65,7 @@
 				821BBDC529A0A5B70092C39F /* AppDelegate.swift */,
 				821BBDC729A0A5B70092C39F /* SceneDelegate.swift */,
 				821BBDC929A0A5B70092C39F /* ViewController.swift */,
+				821BBDF129A1EE8D0092C39F /* CustomAlertViewController.swift */,
 				821BBDCE29A0A5B90092C39F /* Assets.xcassets */,
 				821BBDD029A0A5B90092C39F /* LaunchScreen.storyboard */,
 				821BBDD329A0A5B90092C39F /* Info.plist */,
@@ -142,6 +145,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				821BBDF229A1EE8D0092C39F /* CustomAlertViewController.swift in Sources */,
 				821BBDCA29A0A5B70092C39F /* ViewController.swift in Sources */,
 				821BBDC629A0A5B70092C39F /* AppDelegate.swift in Sources */,
 				821BBDC829A0A5B70092C39F /* SceneDelegate.swift in Sources */,
